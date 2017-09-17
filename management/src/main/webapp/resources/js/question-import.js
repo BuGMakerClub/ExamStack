@@ -49,6 +49,7 @@ var question_import={
 			$("#from-question-import").submit(function(){
 				//var filePath = $("#div-file-list").find("input").val();
 				var filePath = $("#div-file-list").find("input").val().split('\\').pop();
+                filePath = filePath.split('/').pop();
 				$.ajax({
 					headers : {
 						'Accept' : 'application/json',

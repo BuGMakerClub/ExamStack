@@ -235,7 +235,14 @@ request.setAttribute("leftMenuId",list[3]);
 								<table class="table-striped table">
 									<thead>
 										<tr>
-											<!-- <td></td> --><td>ID</td><td class="question-name-td" style="width:240px">试题名称</td><td style="width:60px">类型</td><td>专业</td><td>知识类</td><td>创建人</td><td style="width:90px;">操作</td>
+											<!-- <td></td> -->
+											<td>ID</td>
+											<td class="question-name-td" style="width:240px">试题名称</td>
+											<td style="width:60px">类型</td>
+											<td>专业</td>
+											<td>知识类</td>
+											<td>创建人</td>
+											<td style="width:90px;">操作</td>
 										</tr>
 									</thead>
 									<tbody>
@@ -244,7 +251,8 @@ request.setAttribute("leftMenuId",list[3]);
 											<tr>
 												<td style="display:none;">
 												<input type="checkbox" value="${items.id }">
-												</td><td>${items.id }</td>
+												</td>
+												<td>${items.id }</td>
 												<td>
 													<a href="<%=list[1]%>/question/question-preview/${items.id }" target="_blank" title="预览">${items.name }</a>
 														<div class="question-tags">
@@ -252,10 +260,10 @@ request.setAttribute("leftMenuId",list[3]);
 															<!-- <span>易错题</span>
 															<span>送分题</span> -->
 														</div>
-													
-													</td>
-
-												<td>${items.questionTypeName }</td><td>${items.fieldName }</td><td>${items.pointName }</td>
+												</td>
+												<td>${items.questionTypeName }</td>
+												<td>${items.fieldName }</td>
+												<td>${items.pointName }</td>
 												<td>${items.creator }</td> 
 												<td>
 													<c:choose>

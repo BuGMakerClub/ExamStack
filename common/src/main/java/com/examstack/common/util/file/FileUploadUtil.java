@@ -15,9 +15,11 @@ import java.util.Properties;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.examstack.common.util.StringUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -30,13 +32,20 @@ public class FileUploadUtil {
 
 	private static Log log = LogFactory.getLog(FileUploadUtil.class);
 	public static List<String> uploadFile(HttpServletRequest request, 
-			HttpServletResponse response, String username) throws FileNotFoundException{
+			HttpServletResponse response, String username, String type) throws FileNotFoundException{
 		List<String> filePathList = new ArrayList<String>();
 		
-		String strPath = ",webapps,files,training," + username;
-		
+		String strCommPath = null;
+		if(username != null){
+			strCommPath = "files," + type + "," + username;
+		}else{
+			strCommPath = "files," + type;
+		}
+
+		String strPath = ",webapps," + strCommPath;
+
 		String filepath = System.getProperty("catalina.base") + strPath.replace(',', File.separatorChar);
-		
+
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
@@ -50,7 +59,7 @@ public class FileUploadUtil {
 				String newFileName = MD5FileUtil.getMD5String(mf.getBytes());
 				String newfilepath;
 				newfilepath = filepath + File.separatorChar + newFileName + fileType;
-				String filepathUrl = "files" + File.separatorChar + "training" + File.separatorChar + username + File.separatorChar + newFileName + fileType;
+				String filepathUrl = strCommPath.replace(',', File.separatorChar) + File.separatorChar + newFileName + fileType;
 				
 				System.out.println("newfilepath=" + newfilepath);
 				File dest = new File(filepath);

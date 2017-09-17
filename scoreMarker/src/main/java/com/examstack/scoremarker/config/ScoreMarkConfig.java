@@ -3,10 +3,8 @@ package com.examstack.scoremarker.config;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -61,10 +59,10 @@ public class ScoreMarkConfig {
 
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-		String propertyFilePath = Constants.CONFIG_PATH + File.separator 	+ "config" + File.separator + "scoremaker.properties";
+		String propertyFilePath = Constants.CONFIG_PATH + File.separator 	+ "config" + File.separator + "config/scoremaker.properties";
 		File f = new File(propertyFilePath);
 		if (!f.exists()){
-			propertyFilePath = "config" + File.separator + "scoremaker.properties";
+			propertyFilePath = "config" + File.separator + "config/scoremaker.properties";
 		}
 		PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
 		org.springframework.core.io.Resource[] properties = new FileSystemResource[] { new FileSystemResource(propertyFilePath) };

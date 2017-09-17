@@ -24,7 +24,7 @@ public class TrainingAction {
 		UserInfo userInfo = (UserInfo) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		List<String> filePathList = new ArrayList<String>();
 		try {
-			filePathList = FileUploadUtil.uploadFile(request, response, userInfo.getUsername());
+			filePathList = FileUploadUtil.uploadFile(request, response, userInfo.getUsername(), "training");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

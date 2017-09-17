@@ -67,24 +67,40 @@
 
 	*需要修改的内容如下:*
 	
-	```	
+	```	xml
 	<property name="jdbcUrl" value="jdbc:mysql:/*.*.*.*:3306/examstack?useUnicode=true&amp;characterEncoding=UTF-8" />
 	<property name="user" value="root" />
 	<property name="password" value="***" />
-	```	
+	```
 
 1. 访问`http://localhost:8080/Management`和`http://localhost:8080/Portal`可以进入到管理后台页面和学员页面，并可以正常登陆，则应用配置成功。
 
 	**注意**：*在完成这一步后学员考试交卷无法完成,需要部署`ScoreMarker`。*
 	
 1. 部署ScoreMarker
-	
-    Linux下
-	解压scoreMarker到/opt/目录。
-	确认config/scoremarker.properties文件配置正确。
-	拷贝scoremarker 执行脚本到init.d目录下并检查脚本中的配置。
 
-	Windows下
+
+Linux下
+    
+    1.先安装运行环境：/jsvc
+    [root#] tar xf commons-daemon-native.tar.gz
+    [root#] cd commons-daemon-1.0.15-native-src/unix/ 
+    [root#] ./configure –with-java=/usr/java/latest 
+    [root#] make 
+    [root#] cp jsvc ../..
+    [root#] cp jsvc /opt/scoremarker/jsvc
+   
+	2.解压scoreMarker到/opt/目录，得到/opt/scoremarker
+	3.将scoremarker.jar拷贝到/opt/scoremarker
+	4.确认config/scoremarker.properties文件配置正确
+	5.将配置文件copy到更深层config,最终是/opt/scoremaker/config/config/scoremarker.properties
+	6.启动
+    [root#] sh scoremarker start
+	7.拷贝scoremarker 执行脚本到init.d目录下并检查脚本中的配置
+	
+
+Windows下
+	
 	解压scoreMarker到任意目录。
 	确认config/scoremarker.properties文件配置正确。
 	修改installService.bat中APP_HOME为scoreMarker目录。
