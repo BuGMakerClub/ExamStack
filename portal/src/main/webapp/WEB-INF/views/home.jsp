@@ -149,13 +149,16 @@ String basePath = request.getScheme() + "://"
 		<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px; height:300px;overflow:hidden;visibility:hidden;">
 			<div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1300px;height:300px;overflow:hidden;">
 				<div>
-					<img data-u="image" src="resources/images/slider/000.png" />
+					<img data-u="image" src="resources/images/slider/hid_pic1.jpg" />
 				</div>
 				<div>
-					<img data-u="image" src="resources/images/slider/000.png" />
+					<img data-u="image" src="resources/images/slider/hid_pic2.jpg" />
 				</div>
 				<div>
-					<img data-u="image" src="resources/images/slider/000.png" />
+					<img data-u="image" src="resources/images/slider/hid_pic3.jpg" />
+				</div>
+				<div>
+					<img data-u="image" src="resources/images/slider/hid_pic4.jpg" />
 				</div>
 			</div>
 			<!-- Bullet Navigator -->
