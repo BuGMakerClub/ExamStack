@@ -146,8 +146,8 @@ String basePath = request.getScheme() + "://"
 		<!-- Navigation bar ends -->
 
 		<!-- banner -->
-		<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px; height:300px;overflow:hidden;visibility:hidden;">
-			<div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1300px;height:300px;overflow:hidden;">
+		<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px; height:500px;overflow:hidden;visibility:hidden;">
+			<div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1300px;height:500px;overflow:hidden;">
 				<div>
 					<img data-u="image" src="resources/images/slider/hid_pic1.jpg" />
 				</div>
